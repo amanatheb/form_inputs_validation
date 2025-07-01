@@ -1,0 +1,21 @@
+<h3>Register</h3>
+Please fill in the information below to register<br/><br/>
+ @if(!alert){ <form onsubmit="validate()">
+First Name<input type=text placeholder="first_name" required [formControl]="name">
+Last Name<input type=text placeholder="last_name" id="password"  required maxlength="10" [formControl]="last_name">
+<br/><br/>
+Age<input type="number" placeholder="age"  required [formControl]="age">
+Work email<input type="email" placeholder="email"  required [formControl]="email"><br/><br/>
+
+Gender<input type="radio" >Male <input type="radio">Female <input type="radio" >Prefer Not to say<br/><br/>
+Password<input type="password" placeholder="password" [formControl]="password" >
+Confirm Password<input type="password" placeholder="confirm_password" [formControl]="confirm" >
+<br/><br/>
+<input type="checkbox">I agree with the terms and conditions<br/><br/>
+
+<button [disabled]= !(this.name.value&&this.last_name.value&&this.age.value&&this.email.value&&this.password.value&&this.confirm.value) >Register</button>
+</form>}
+@if(alert){
+  <div> Please enter the valid data
+  <button (click)="returnToForm()" >Close</button></div>
+}
